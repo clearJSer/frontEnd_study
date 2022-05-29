@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid 布局学习</title>
+    <style>
+        span {
+            font-size: 2em;
+        }
+        #grid-container {
+            display: grid;
+            /* grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px; */
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            /* grid-template-columns: repeat(auto-fill, 100px); */
+
+            /* 行间距，列间距 */
+            /* grid-row-gap: 10px;
+            grid-column-gap: 10px; */
+            /* grid-gap: 10px 10px; */
+            gap: 5px 5px; 
+        }
+        .item {
+            background: red;
+            text-align: center;
+            font-size: 2em;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <span>hello</span>
+    <div id="grid-container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+    </div>
+    <span>grid</span>
+</body>
+</html>
