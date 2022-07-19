@@ -14,21 +14,20 @@ function read(url) {
   })
   return dfd.promise
 }
-const isPromise = (value) => {
-  if (typeof value === 'object' && value !== null || typeof value === 'function') {
-    if (typeof value.then === 'function') {
+function isPromise(obj) {
+  if (typeof obj === 'object' && obj !== null || typeof obj === 'function') {
+    if (typeof obj.then === 'function') {
       return true;
     } else {
       return false;
     }
-
   }
 }
+
 Promise.all = function (values) {
   return new Promise((resolve, reject) => {
-    let arr = [];
+    let arr = []
     let index = 0;
-
     function processData(key, value) {
       arr[key] = value;
       if (++index === values.length) {
@@ -37,7 +36,7 @@ Promise.all = function (values) {
     }
 
     for (let i = 0; i < values.length; i++) {
-      let current = values[i];
+      let current = values[i]
       if (isPromise(current)) {
         current.then(data => {
           processData(i, data)
@@ -46,8 +45,12 @@ Promise.all = function (values) {
         processData(i, current)
       }
     }
+
   })
+
+
 }
+
 Promise.all([1, 2, 3, read('./name.txt'), 5, 6, 7]).then(data => {
   console.log(data)
 })
