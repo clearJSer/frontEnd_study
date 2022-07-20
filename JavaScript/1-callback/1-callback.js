@@ -5,7 +5,7 @@
 // 高阶函数， 如果一个的参数是一个函数，或者 返回了一个函数（返回的函数就是高阶函数）
 
 function say(who) {
-  console.log(who + 'hello ')
+  console.log(who + '说：hello ')
 }
 
 Function.prototype.before = function (beforeFun) {
@@ -24,12 +24,12 @@ newFu('我')
 
 let oldPush = Array.prototype.push;
 
-function push(...args) {
+function pushNew(...args) {
   console.log('数据更新了');
   oldPush.call(this, ...args)
 }
 let arr = [1, 3, 4];
-push.call(arr, 4, 5, 6, 7)
+pushNew.call(arr, 4, 5, 6, 7)
 console.log(arr);
 //  基础补充 什么叫闭包？
 /**
