@@ -1,22 +1,21 @@
 let arr1 = [0, 2, 0, 3, 1, 50, 8, 7]
 
-function quickSort(arr) {
-  if (arr.length < 2) {
-    return arr
+/**
+ * 快速排序
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortArray = function (nums) {
+  if (nums.length <= 1) return nums; //递归中止
+  const pivotIdx = Math.floor(nums.length / 2);
+  const pivot = nums.splice(pivotIdx, 1)[0];
+  const left = [],
+    right = [];
+  for (let num of nums) {
+    if (num < pivot) left.push(num);
+    else right.push(num);
   }
-  let current = arr[0]
-  let left = [];
-  let right = [];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] < current) {
-      left.push(arr[i])
-    } else {
-      right.push(arr[i])
-    }
-  }
-  result = quickSort(left).concat(current, quickSort(right))
-  return result
-}
+  return sortArray(left).concat([pivot], sortArray(right));
+};
 
-
-console.log(quickSort(arr1))
+console.log(sortArray(arr1))
