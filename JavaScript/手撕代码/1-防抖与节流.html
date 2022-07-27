@@ -10,22 +10,33 @@
   <div style="height: 3000px;"></div>
 </body>
 <script>
-  window.addEventListener('scroll', debounce(sss, 1000))
+  window.addEventListener('scroll', throttle2(sss, 1000))
 
 
   function sss(s){
     console.log(s, 1+'滚动了')
   }
   // 节流
-  function throttle(fn, time) {
-    let start =  Date.now()
-    let that = this;
+  // function throttle(fn, time) {
+  //   let start =  Date.now()
+  //   let that = this;
+  //   return function() {
+  //     let now =  Date.now();
+  //     if(now - start > time) {
+  //       fn.apply(that, arguments)
+  //       start  =  Date.now();
+  //     }
+  //   }
+  // }
+  function throttle2(fn, time) {
+    let flag = true;
     return function() {
-      let now =  Date.now();
-      if(now - start > time) {
-        fn.apply(that, arguments)
-        start  =  Date.now();
-      }
+      if(!flag) return ;
+      flag = false;
+      setTimeout(() => {
+        fn.apply(this, arguments)
+        flag = true
+      }, time)
     }
   }
   // 防抖
