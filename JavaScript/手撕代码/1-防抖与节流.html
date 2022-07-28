@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div style="height: 3000px;"></div>
+</body>
+<script>
+  window.addEventListener('scroll', throttle2(sss, 1000))
+
+
+  function sss(s){
+    console.log(s, 1+'滚动了')
+  }
+  // 节流
+  // function throttle(fn, time) {
+  //   let start =  Date.now()
+  //   let that = this;
+  //   return function() {
+  //     let now =  Date.now();
+  //     if(now - start > time) {
+  //       fn.apply(that, arguments)
+  //       start  =  Date.now();
+  //     }
+  //   }
+  // }
+  function throttle2(fn, time) {
+    let flag = true;
+    return function() {
+      if(!flag) return ;
+      flag = false;
+      setTimeout(() => {
+        fn.apply(this, arguments)
+        flag = true
+      }, time)
+    }
+  }
+  // 防抖
+  function debounce(fn, time) {
+    let timer = null;
+    return function() {
+      if(timer) {
+        clearTimeout(timer)
+      }
+      timer = setTimeout(() => {
+        fn.apply(this, arguments)
+      }, time)
+    }
+  }
+</script>
+</html>
