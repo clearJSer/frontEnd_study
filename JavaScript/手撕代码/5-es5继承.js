@@ -10,7 +10,16 @@ function Child(name, age) {
   Parent.call(this, name)
   this.age = age
 }
+// Children.prototype = new Parent(); 优化
 Child.prototype = Object.create(Parent.prototype)
+// 目的：为了让Children的实例（instance）的constructor查询出来的结果正确（是Children）
+Children.prototype.sayAge = function () {
+  console.log(this.age);
+}
+
+var instance = new Children("xhy", 18);
+instance.sayAge() // 18
+instance.sayName() // xhy
 Child.prototype.constructor = Child
 Child.prototype.sayAge = function () {
   console.log(this.age)
