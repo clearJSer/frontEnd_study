@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="jsContainer">
+
+  <ul class="js-test" id="jsParent">
+
+    <li data-index="0">1</li>
+
+    <li data-index="1">2</li>
+
+  </ul>
+  <span style="font-weight: bold;">3</span>
+
+  4
+
+</div>
+
+<script>
+const jsParent = document.querySelector('#jsParent')
+const span = document.getElementsByTagName('span')[0]
+const container = document.getElementById('jsContainer')
+
+// container.innerHTML = 5;
+
+const last = container.lastChild;
+
+const text = document.createTextNode(5)
+container.innerHTML = '';
+jsContainer.appendChild(jsParent)
+jsContainer.appendChild(span)
+jsContainer.appendChild(text)
+
+// container.insertBefore(span,container.lastChild)
+// container.insertBefore(jsParent, span)
+
+
+// container.insertBefore(5)
+// container.appendChild(jsParent)
+// container.appendChild(span)
+
+</script>
+
+</body>
+</html>

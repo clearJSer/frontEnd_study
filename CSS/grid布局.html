@@ -29,6 +29,28 @@
             font-size: 2em;
             border: 1px solid #000;
         }
+        /*22*/
+        .grid2{
+          display: grid;
+          width: 100%;
+          height: 800px;
+          /* grid-template-columns: repeat(100, 1%); */
+          background-color: #ccc;
+
+          grid-template-columns: 200px 200px 200px;
+          grid-template-rows: 200px 200px 200px;
+          justify-items: center;
+          align-items: center;
+          justify-content: center;
+          align-content: center;
+          grid-gap: 5px 5px;
+        }
+        .item2{
+          width: 100px;
+          height: 100px;
+          background-color: red;
+         
+        }
     </style>
 </head>
 <body>
@@ -45,5 +67,9 @@
         <div class="item">9</div>
     </div>
     <span>grid</span>
+
+    <div class="grid2">
+      <div class="item2" contenteditable="true">center</div>
+    </div>
 </body>
 </html>
