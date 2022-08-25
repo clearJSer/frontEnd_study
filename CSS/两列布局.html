@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <title>二列布局</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 1: grid  布局  2. flex*/
+    /* .outer {
+      display: grid;
+      grid-template-columns: 200px auto;
+    } */
+
+    /* 3. 浮动布局  calc(100vw - 200px);*/
+    /* .outer {
+      display: grid;
+      grid-template-columns: 200px auto;
+    } */
+
+    .inner {
+      height: 300px;
+    }
+
+    .left {
+      background-color: yellowgreen;
+      width: 200px;
+      float: left;
+    }
+
+    .right {
+      background-color: red;
+      /* margin-left: 200px; */
+      /* float: left;
+      width: calc(100vw - 200px); */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="inner left">11111</div>
+    <div class="inner right">2222</div>
+  </div>
+</body>
+
+</html>
