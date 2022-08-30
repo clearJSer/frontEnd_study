@@ -13,6 +13,13 @@
 
 // test()
 
+function test() {
+  setTimeout(() => {
+    test()
+  }, 0)
+}
+test()
+
 
 function test1() {
   return new Promise((resolve, reject) => {
