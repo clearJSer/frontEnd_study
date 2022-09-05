@@ -7,7 +7,7 @@ let arr1 = [0, 2, 0, 3, 1, 50, 8, 7]
  */
 var sortArray = function (nums) {
   if (nums.length <= 1) return nums; //递归中止
-  const pivotIdx = Math.floor(nums.length / 2);
+  const pivotIdx = Math.floor(nums.length * Math.random());
   const pivot = nums.splice(pivotIdx, 1)[0];
   const left = [],
     right = [];
